@@ -1,0 +1,96 @@
+.film-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.film-info {
+    flex-grow: 1;
+}
+.film-title {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.film-description {
+    display: none;
+    padding-top: 10px;
+}
+
+.add-film-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.add-film-button:hover {
+    background-color: #45a049;
+}
+
+.modal {
+    background-color: #e0e0e0; 
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #000; 
+    width: 80%; 
+    max-width: 600px; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.modal form {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.modal input[type="text"], .modal input[type="number"], .modal textarea {
+    width: 80%; 
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-left: auto; 
+    margin-right: auto;
+    display: block; 
+}
+
+.modal input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal input[type="submit"]:hover {
+    background-color: #45a049;
+}
+.wypozycz-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.wypozycz-button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: default; 
+    pointer-events: none; 
+}
+
+.wypozycz-button:disabled:hover {
+    background-color: #ccc; 
+    color: #666; 
+}

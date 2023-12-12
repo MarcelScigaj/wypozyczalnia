@@ -1,0 +1,61 @@
+
+.strona-glowna-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.strona-glowna-button:hover {
+    background-color: #45a049;
+}
+
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+
+a.strona-glowna-button {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 10px;
+}
+
+
+td {
+    padding: 10px;
+}
+
+
+input[name="zwrocFilm"]{
+    background-color: rgb(255, 255, 44); 
+    color: rgb(0, 0, 0);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+

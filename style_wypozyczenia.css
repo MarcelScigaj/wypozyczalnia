@@ -1,0 +1,24 @@
+/* Stylizacja tabeli z listą wypożyczeń */
+.wypozyczenia-table {
+    width: 100%; /* Zwiększamy szerokość tabeli do 100% */
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.wypozyczenia-table th, .wypozyczenia-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.wypozyczenia-table th {
+    background-color: #444;
+    color: #fff;
+    
+}
+.wypozyczenia-table td {
+    text-align: center; /* Wyśrodkowanie tekstu w komórkach */
+    vertical-align: middle; /* Wyśrodkowanie pionowe tekstu w komórkach */
+}
