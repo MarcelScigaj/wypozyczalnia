@@ -31,7 +31,7 @@
             <?php else: ?>
                 <a href="user_wypozyczenia.php">Moje wypożyczenia</a>
             <?php endif; ?>
-            <a href="">Testowanie</a>
+            
             <a href="logout.php" style="float: right;">Wyloguj</a>
         <?php endif; ?>
     </div>
