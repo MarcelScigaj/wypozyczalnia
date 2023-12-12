@@ -21,5 +21,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t ${{ secrets.REGISTRY_NAME }}.azurecr.io/myapp:latest -f Dockerfile-php .
-          docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/myapp:latest
+          docker build -t ${{ secrets.REGISTRY_NAME }}.azurecr.io/wypozyczalnia:latest -f Dockerfile-php .
+          docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/wypozyczalnia:latest
