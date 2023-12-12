@@ -1,0 +1,22 @@
+apiVersion: '2018-10-01'
+location: eastus
+name: wypozyczalniaaci
+properties:
+  containers:
+    - name: wypozyczalniaapp
+      properties:
+        image: wypozyczalniaregistry.azurecr.io/wypozyczalnia:latest
+        resources:
+          requests:
+            cpu: 1.0
+            memoryInGb: 1.5
+        ports:
+          - port: 80
+        environmentVariables: []
+  osType: Linux
+  restartPolicy: Always
+  ipAddress:
+    type: Public
+    ports:
+      - protocol: tcp
+        port: 80
