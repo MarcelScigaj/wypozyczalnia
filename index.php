@@ -13,8 +13,10 @@
         if (isset($_SESSION['userName'])) {
             echo '<div class="welcome">Witaj, ' . htmlspecialchars($_SESSION['userName']) . '</div>';
         }
+        // Zmiana w kodzie by wypchac zmiany na glowna galaz
         ?>
     </div>
+    
     <div class="navbar">
         <?php if (!isset($_SESSION['user'])): ?>
             <a href="index.php">Strona Główna</a>
