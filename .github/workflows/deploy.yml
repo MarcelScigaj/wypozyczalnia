@@ -1,25 +1,40 @@
 name: Build and Deploy
 
 on:
-  push:
-    branches:
-      - main
+push:
+branches:
+- main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+build-and-deploy:
+runs-on: ubuntu-latest
+steps:
+- name: Checkout Repository
+uses: actions/checkout@v2
 
-      - name: Login to Azure Container Registry
-        uses: azure/docker-login@v1
-        with:
-          login-server: ${{ secrets.REGISTRY_NAME }}.azurecr.io
-          username: ${{ secrets.REGISTRY_USERNAME }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+- name: Login to Azure Container Registry
+uses: azure/docker-login@v1
+with:
+login-server: ${{ secrets.REGISTRY_NAME }}.azurecr.io
+username: ${{ secrets.REGISTRY_USERNAME }}
+password: ${{ secrets.REGISTRY_PASSWORD }}
 
-      - name: Build and Push Docker Image
-        run: |
-          docker build -t ${{ secrets.REGISTRY_NAME }}.azurecr.io/wypozyczalnia:latest -f Dockerfile-php .
-          docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/wypozyczalnia:latest
+- name: Build and Push Docker Image
+run: |
+docker build -t ${{ secrets.REGISTRY_NAME }}.azurecr.io/wypozyczalnia:latest -f Dockerfile-php .
+docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/wypozyczalnia:latest
+
+- name: Deploy to Azure Container Instances
+run: |
+az container create \
+--resource-group ${{ secrets.RESOURCE_GROUP }} \
+--name wypozyczalniaaci \
+--image ${{ secrets.REGISTRY_NAME }}.azurecr.io/wypozyczalnia:latest \
+--dns-name-label wypozyczalniaaci \
+--ports 80 \
+--environment-variables \
+MONGO_INITDB_ROOT_USERNAME=admin \
+MONGO_INITDB_ROOT_PASSWORD=Marcelek123 \
+MONGO_INITDB_DATABASE=wypozyczalnia
+env:
+AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
