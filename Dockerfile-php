@@ -29,4 +29,4 @@ RUN chown -R www-data:www-data /var/www/html
 
 # Eksponowanie portu 80
 EXPOSE 80
-"
+
