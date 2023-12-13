@@ -1,3 +1,7 @@
+
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -8,8 +12,7 @@
 <body>
     <div class="header">
         <h1>Wypożyczalnia Filmów</h1>
-        <?php
-        session_start();
+        <?phh
         if (isset($_SESSION['userName'])) {
             echo '<div class="welcome">Witaj, ' . htmlspecialchars($_SESSION['userName']) . '</div>';
         }
