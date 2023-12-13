@@ -44,6 +44,7 @@ jobs:
           MONGO_INITDB_ROOT_USERNAME=admin \
           MONGO_INITDB_ROOT_PASSWORD=Marcelek123 \
           MONGO_INITDB_DATABASE=wypozyczalnia
-          --registry-username ${{ secrets.REGISTRY_USERNAME }}
+           --registry-username $REGISTRY_USERNAME
         env:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+          REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
