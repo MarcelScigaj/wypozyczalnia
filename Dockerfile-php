@@ -1,32 +1,22 @@
-# Użyj obrazu PHP z Apache
 FROM php:7.4-apache
 
-# Instalacja rozszerzenia MongoDB dla PHP
 RUN apt-get update && apt-get install -y libbson-1.0 libmongoc-1.0-0
 RUN pecl install mongodb
 RUN echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini
 
-# Instalacja narzędzi niezbędnych do uruchomienia Composera
 RUN apt-get update && apt-get install -y git unzip
 
-# Kopiowanie pliku composer.json i composer.lock 
 COPY composer.json composer.lock* /var/www/html/
 
-# Instalacja Composera
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Instalacja zależności
 RUN composer install --no-scripts --no-autoloader && rm -rf /root/.composer
 
-# Kopiowanie reszty kodu źródłowego aplikacji
 COPY . /var/www/html
 
-# Uruchomienie autoloadera Composera
 RUN composer dump-autoload --optimize
 
-# Ustawienie uprawnień dla katalogu
 RUN chown -R www-data:www-data /var/www/html
 
-# Eksponowanie portu 80
 EXPOSE 80
 
